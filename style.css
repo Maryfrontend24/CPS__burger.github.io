@@ -1,0 +1,371 @@
+
+/*Переменные*/
+
+:root {
+    --white-color: #FFFFFF;
+    --base-color: #FF3E79;
+    --black-color: #1B1C21;
+    --active-text-color: #7E7E82;
+    --extra-color: #B8FFEC;
+    --green-color: #41F6D7;
+    --shadow-color: #D9FFF5;
+    --point-placeholder-color: #B5B6BC;
+    --background-color: #F8F8F8;
+    --border: #EAEAEA;
+}
+
+/*Подключение шрифтов*/
+
+@font-face {
+    font-family: 'TT Lakes';
+    font-style: normal;
+    font-weight:normal;
+    src: local('TT Lakes'),
+    url('./fonts/TTLakes-Regular.woff2') format('woff2');
+    url('./fonts/TTLakes-Regular.woff') format('woff');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'TT Lakes';
+    font-style:normal;
+    font-weight:500;
+    src: local('TT Lakes'),
+    url('./fonts/TTLakes-Medium.woff2') format('woff2');
+    url('./fonts/TTLakes-Medium.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT Lakes';
+    font-style:normal;
+    font-weight:bold;
+    src: local('TT Lakes'),
+    url('./fonts/TTLakes-Bold.woff2') format('woff2');
+    url('./fonts/TTLakes-Bold.woff') format('woff');
+    font-display: swap;
+
+}
+/*Сброс стилей*/
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:where(ul, ol):where([class]) {
+    padding-left: 0;
+    margin: 0;
+}
+
+body,
+:where(blockquote, figure):where([class]) {
+    margin: 0;
+}
+.container{
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+:where(
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  dl
+):where([class]) {
+    margin-block: 0;
+}
+
+:where(dd[class]) {
+    margin-left: 0;
+}
+
+:where(fieldset[class]) {
+    margin-left: 0;
+    padding: 0;
+    border: none;
+}
+
+:where(ul[class]) {
+    list-style: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+textarea,
+select,
+button {
+    font: inherit;
+}
+
+html {
+    height: 100%;
+}
+
+html,
+:has(:target) {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100%;
+    line-height: 1.5;
+    font-size: 14px;
+    font-weight: normal;
+    color:var(--black-color);
+    font-family: 'TT Lakes', Arial, sans-serif;
+}
+
+svg *[fill] { fill: currentColor }
+svg *[stroke] { stroke: currentColor }
+
+svg * {
+    transition-property: fill, stroke;
+}
+
+.description__text--default i,
+.description__text--default span {
+    font: inherit;
+}
+
+.visually-hidden,
+.hidden {
+    position: absolute;
+    visibility: hidden;
+}
+.visually-hidden--desktop{
+    display: none;
+}
+
+
+
+body,html{
+height: 100%;
+}
+
+
+/*aside*/
+button,
+button:active,
+button:focus {
+    border:none;
+}
+
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    background-color: var(--base-color);
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 50%;
+}
+.button img{
+    line-height: 100%;
+}
+
+.side-wrapper{
+    padding-left: 24px;
+}
+.side-window{
+    display: flex;
+    flex-direction: column;
+    top:0;
+    left:auto;
+    min-height: 100%;
+    align-items: stretch;
+    max-width:320px;
+    box-shadow: 16px 0px 52px 0px #0E185033;
+    color: var(--black-color);
+}
+
+    /*Это еслли нужен скролл*/
+
+    /*.side-window{*/
+    /*    overflow-y: auto;*/
+    /*    outline: solid transparent 1px;*/
+    /*}*/
+
+
+/*side-window__header*/
+
+nav{
+    flex-grow: 1;
+}
+.side-window__menu{
+    display: flex;
+    padding:18.73px 24px;
+    align-items: center;
+}
+.button{
+    cursor: pointer;
+}
+.side-window__item:not(:last-child){
+    margin-right: 16.73px;
+}
+
+.side-window__item:nth-child(2){
+    margin-right: 78.73px;
+}
+
+.button--close::before,
+.button--close::after{
+    content:"";
+    position: absolute;
+    width:21.73px;
+    height:2.17px;
+    background-color: #FFFFFF;
+}
+
+
+.button--close::after{
+    transform: rotate(45deg);
+}
+.button--close::before{
+    transform: rotate(-45deg);
+}
+
+.side-window__header{
+    margin-bottom: 46.46px;
+}
+.button:hover{
+background-color: rgba(255, 62, 121, 0.7);
+}
+/*  от себя  */
+.button img:hover{
+    transform: scale(1.15);
+    transition: all 0.2s linear;
+}
+
+/* если нужен фокус при Tab - меняется цвет пунктов меню (добавила от себя)*/
+a:focus-visible{
+    outline:none;
+    color:var(--active-text-color);
+}
+
+/* фокус на кнопках при нажатии Tab, если нужно (добавила от себя)*/
+button:focus{
+    outline:none;
+    background-color: rgb(222, 30, 119);
+}
+
+
+/*side-nav*/
+
+.side-window__nav{
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    margin-bottom: auto;
+}
+
+.side-nav__item:not(:last-child){
+    margin-bottom: 32px;
+}
+.side-nav__link,
+.languages-block__link{
+    color:var(--black-color);
+    list-style: none;
+    text-decoration:none;
+    font-size: 16px;
+}
+
+.side-wrapper--margin-0{
+    margin-left: 0;
+}
+
+        /* Это если нужно измение цвета при наведении на каждый пункт указателем*/
+/*.side-nav__link:hover{*/
+/*color:var(--active-text-color);*/
+        /*}*/
+
+.side-nav__link--active{
+    border:4px solid transparent;
+    margin-left: -24px;
+    list-style: none;
+    padding-left:20px;
+    letter-spacing: -0.2px;
+}
+
+ /* у активной ссылки меню меняется цвет и появлятя сбоку псевдоэлемент, но можно сделать и при наведении, если нужно по задумке дизайнера */
+ .side-nav__link--active:active{
+     color:var(--active-text-color);
+     border-left: 4px solid var(--green-color);
+     margin-left: -24px;
+     list-style: none;
+     padding-left:20px;
+     letter-spacing: -0.2px;
+}
+/*contacts*/
+.side-window__contacts{
+    display:flex;
+    flex-direction: column;
+    margin-top: 32px;
+    padding-left: 24px;
+}
+.contact__buttons:not(:last-child){
+    display: flex;
+}
+.contact__buttons{
+    margin-bottom: 16px;
+}
+.contact__item{
+    margin-right: 16px;
+}
+.contact__mail,
+.contact__tell{
+    display: block;
+    text-decoration: none;
+    list-style: none;
+    color:inherit;
+    font-size: 16px;
+}
+.contact__mail{
+    margin-top: 12px;
+}
+.contact__tell{
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing:-0.6px;
+    margin-bottom: 40px;
+}
+.side-window__languages{
+    padding-bottom: 32px;
+}
+.side-window__languages{
+    padding-left: 24px;
+    display: flex;
+}
+.languages-block__item:not(:last-child){
+    margin-right:7px ;
+}
+
+
+/*это для наглядности цвет выбранного языка изменила сразу*/
+.languages-block__link--done{
+    color:var(--active-text-color);
+}
+
+.languages-block__link--done:active{
+    color:var(--active-text-color);
+}
+
+
+@media (orientation:landscape){
+    .side-nav__item:not(:last-child) {
+        margin-bottom: 20px;
+    }
+}
